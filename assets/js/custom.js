@@ -316,3 +316,53 @@
 
 
 })(window.jQuery);
+
+// Get modal elements
+var modal = document.getElementById("modal");
+var openModalBtn = document.getElementById("openModalBtn");
+var closeModal = document.getElementsByClassName("close")[0];
+var contactForm = document.getElementById("contactForm");
+
+// Open modal when the button is clicked
+openModalBtn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// Close modal when the close button is clicked
+closeModal.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Close modal when clicking outside the modal content
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Send form data to email when the send button is clicked
+contactForm.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get form data
+    var name = document.getElementById("name").value;
+    var course = document.getElementById("course").value;
+    var phone = document.getElementById("phone").value;
+
+    // Prepare email body
+    var emailBody = "Name: " + name + "\nPreferred Course: " + course + "\nPhone Number: " + phone;
+
+    // Construct email URL
+    var emailUrl = "mailto:migrate2dreamsho@gmail.com?subject=Enquiry for Study Abroad Opportunities in italy &body=" + encodeURIComponent(emailBody);
+
+    // Open email client with pre-filled data
+    window.open(emailUrl);
+
+    // Clear form fields
+    document.getElementById("name").value = "";
+    document.getElementById("course").value = "";
+    document.getElementById("phone").value = "";
+
+    // Close the modal
+    modal.style.display = "none";
+});
