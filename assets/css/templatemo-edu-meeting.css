@@ -789,7 +789,7 @@ services
   text-align: center;
   color: #fff;
   padding: 40px;
-  height: 380px;
+  height: 420px;
 }
 
 .services .item .icon {
@@ -910,6 +910,8 @@ upcoming meetings
   border: 1px solid #888;
   width: 30%;
 }
+
+
 
 .close {
   color: #aaa;
@@ -1737,6 +1739,11 @@ section.meetings-page .pagination ul li a:hover {
 	.templatemo-item-col {
 		width: 100%;
 	}
+}
+@media (max-width: 767px) {
+  .modal-content{
+    width: 90%;
+  }
 }
 
 /* 
